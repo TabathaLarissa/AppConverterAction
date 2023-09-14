@@ -11,7 +11,7 @@ def main():
     # O menu estará dentro do sidebar, então ele será renderizado corretamente
     with st.sidebar:
         st.image("Logoapp.png")
-        selected = option_menu('', ['Conversão de Formato', 'Transpor Arquivo'], 
+        selected = option_menu('', ['Converter Formato', 'Transpor Arquivo'], 
             icons=['file-earmark-arrow-down-fill', 'arrow-left-right'], menu_icon=" ", default_index=0,
             styles={
                 "container": {"padding": "5!important", "background-color": "#fafafa"},
@@ -22,7 +22,7 @@ def main():
         )
         
         # Agora as páginas são chamadas após o menu
-    if selected == 'Conversão de Formato':
+    if selected == 'Converter Formato':
         converter()
     elif selected == 'Transpor Arquivo':
         transpose_excel()
