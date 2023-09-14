@@ -1,0 +1,18 @@
+/* stylet.css */
+.stImage {
+    display: flex;
+    justify-content: center;
+}
+
+footer {
+    visibility: hidden;
+}
+
+#MainMenu {
+    visibility: hidden;
+}
+
+.stDeployButton {
+    visibility: hidden;
+}
+
