@@ -16,11 +16,10 @@ pip install jinja2
 pip install -r requirements.txt
 
 
-cd C:\Users\4901668668\Documents\Projetos_Python
-python.exe -m venv venv
-venv/Scripts/activate
+cd C:\Users\4901668668\Documents\App_Converter
 
-cd C:\Users\4901668668\Documents\Projetos_Python\AppStockIA\Plataforma
-cd C:\Users\4901668668\Documents\Projetos_Python\App_Converter
+python.exe -m venv venv
+
+venv/Scripts/activate
 
 streamlit run main.py
