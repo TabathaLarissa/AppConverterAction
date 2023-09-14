@@ -23,3 +23,5 @@ python.exe -m venv venv
 venv/Scripts/activate
 
 streamlit run main.py
+
+pip freeze > requirements.txt
