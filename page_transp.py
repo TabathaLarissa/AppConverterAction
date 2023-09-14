@@ -23,7 +23,6 @@ def transpose_excel():
         transpose_source = st.radio("Você deseja transpor a partir de:", ("Colunas", "Linhas"))
         transpose_destination = st.radio("Você deseja transpor para:", ("Linhas", "Colunas"))
 
-        # Dependendo da escolha do usuário, liste colunas ou índices (linhas)
         if transpose_source == "Colunas":
             to_transpose = st.multiselect('Escolha as colunas que deseja transpor', df.columns)
         else:
@@ -34,8 +33,19 @@ def transpose_excel():
                 st.warning("Por favor, selecione pelo menos uma linha ou coluna para transpor.")
                 return
 
+            # Verificação de colunas duplicadas
+            if df.columns.duplicated().any():
+                st.error("Erro: Seu arquivo contém colunas com nomes duplicados.")
+                return
+
             if transpose_source == "Colunas" and transpose_destination == "Linhas":
                 id_vars_cols = [col for col in df.columns if col not in to_transpose]
+
+                # Verifique se as colunas existem
+                if not set(id_vars_cols).issubset(df.columns) or not set(to_transpose).issubset(df.columns):
+                    st.error("Erro: Algumas colunas selecionadas não estão presentes no arquivo.")
+                    return
+
                 transposed_data = df.melt(id_vars=id_vars_cols,
                                           value_vars=to_transpose,
                                           var_name="TransposedColumns",
@@ -57,7 +67,5 @@ def transpose_excel():
             st.markdown(get_file(file_name, file_label=file_name), unsafe_allow_html=True)
             st.markdown("Se precisar novamente no futuro, **volte aqui** que estarei feliz em te ajudar! 😉")
 
-                
             # Apague o arquivo após disponibilizá-lo para download
             os.remove(file_name)
-
