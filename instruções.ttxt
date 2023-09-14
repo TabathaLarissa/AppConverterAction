@@ -13,6 +13,9 @@ pip install streamlit-login-auth-ui
 pip install flask jinja2 werkzeug markupsafe
 pip install jinja2
 
+pip install -r requirements.txt
+
+
 cd C:\Users\4901668668\Documents\Projetos_Python
 python.exe -m venv venv
 venv/Scripts/activate
